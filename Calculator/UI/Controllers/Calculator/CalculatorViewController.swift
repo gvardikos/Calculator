@@ -6,6 +6,12 @@
 //  Copyright © 2019 George Vardikos. All rights reserved.
 //
 
-import UIKit
+import Stevia
 
+extension CalculatorViewController {
+    
+}
 
+final public class CalculatorViewController: BaseViewController {
+    public override func loadView() { view = CalculatorView() }
+}
