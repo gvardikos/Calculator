@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC15941A230F2CEB000A5592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC159419230F2CEB000A5592 /* AppDelegate.swift */; };
 		EC15941C230F2CEB000A5592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC15941B230F2CEB000A5592 /* ViewController.swift */; };
-		EC15941F230F2CEB000A5592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC15941D230F2CEB000A5592 /* Main.storyboard */; };
 		EC159421230F2CEC000A5592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC159420230F2CEC000A5592 /* Assets.xcassets */; };
-		EC159424230F2CEC000A5592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC159422230F2CEC000A5592 /* LaunchScreen.storyboard */; };
 		EC15942F230F2CEC000A5592 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC15942E230F2CEC000A5592 /* CalculatorTests.swift */; };
 		EC15943A230F2CEC000A5592 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC159439230F2CEC000A5592 /* CalculatorUITests.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
@@ -38,9 +36,7 @@
 		EC159416230F2CEB000A5592 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC159419230F2CEB000A5592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC15941B230F2CEB000A5592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EC15941E230F2CEB000A5592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC159420230F2CEC000A5592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC159423230F2CEC000A5592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC159425230F2CEC000A5592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC15942A230F2CEC000A5592 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC15942E230F2CEC000A5592 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
@@ -105,9 +101,7 @@
 				EC53D38D23118AEF00BF4B0E /* UI */,
 				EC53D39023118B0400BF4B0E /* ModelLayer */,
 				EC53D38B23118A7900BF4B0E /* SupporitngFiles */,
-				EC15941D230F2CEB000A5592 /* Main.storyboard */,
 				EC159420230F2CEC000A5592 /* Assets.xcassets */,
-				EC159422230F2CEC000A5592 /* LaunchScreen.storyboard */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -184,6 +178,7 @@
 				EC159412230F2CEB000A5592 /* Sources */,
 				EC159413230F2CEB000A5592 /* Frameworks */,
 				EC159414230F2CEB000A5592 /* Resources */,
+				EC53D39523118E9000BF4B0E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -278,9 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC159424230F2CEC000A5592 /* LaunchScreen.storyboard in Resources */,
 				EC159421230F2CEC000A5592 /* Assets.xcassets in Resources */,
-				EC15941F230F2CEB000A5592 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +292,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC53D39523118E9000BF4B0E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC159412230F2CEB000A5592 /* Sources */ = {
@@ -341,25 +354,6 @@
 			targetProxy = EC159436230F2CEC000A5592 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EC15941D230F2CEB000A5592 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC15941E230F2CEB000A5592 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EC159422230F2CEC000A5592 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC159423230F2CEC000A5592 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EC15943C230F2CEC000A5592 /* Debug */ = {
@@ -486,7 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Calculator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Calculator/SupporitngFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,7 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Calculator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Calculator/SupporitngFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -662,7 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Calculator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Calculator/SupporitngFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
