@@ -100,15 +100,13 @@
 		EC159418230F2CEB000A5592 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				EC53D38B23118A7900BF4B0E /* SupporitngFiles */,
 				EC159419230F2CEB000A5592 /* AppDelegate.swift */,
 				EC15941B230F2CEB000A5592 /* ViewController.swift */,
 				EC15941D230F2CEB000A5592 /* Main.storyboard */,
 				EC159420230F2CEC000A5592 /* Assets.xcassets */,
 				EC159422230F2CEC000A5592 /* LaunchScreen.storyboard */,
 				EC159425230F2CEC000A5592 /* Info.plist */,
-				EC53D38A23118A0500BF4B0E /* Development.xcconfig */,
-				EC159449230F3889000A5592 /* Staging.xcconfig */,
-				EC159448230F3869000A5592 /* Production.xcconfig */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -129,6 +127,24 @@
 				EC15943B230F2CEC000A5592 /* Info.plist */,
 			);
 			path = CalculatorUITests;
+			sourceTree = "<group>";
+		};
+		EC53D38B23118A7900BF4B0E /* SupporitngFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EC53D38C23118A8F00BF4B0E /* Config */,
+			);
+			path = SupporitngFiles;
+			sourceTree = "<group>";
+		};
+		EC53D38C23118A8F00BF4B0E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				EC53D38A23118A0500BF4B0E /* Development.xcconfig */,
+				EC159449230F3889000A5592 /* Staging.xcconfig */,
+				EC159448230F3869000A5592 /* Production.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
