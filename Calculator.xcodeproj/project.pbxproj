@@ -13,6 +13,8 @@
 		EC15942F230F2CEC000A5592 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC15942E230F2CEC000A5592 /* CalculatorTests.swift */; };
 		EC15943A230F2CEC000A5592 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC159439230F2CEC000A5592 /* CalculatorUITests.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
+		EC53D3982311904E00BF4B0E /* CALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D3972311904E00BF4B0E /* CALog.swift */; };
+		EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		EC159449230F3889000A5592 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC53D39323118BFA00BF4B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		EC53D3972311904E00BF4B0E /* CALog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALog.swift; sourceTree = "<group>"; };
+		EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			children = (
 				EC53D38D23118AEF00BF4B0E /* UI */,
 				EC53D39023118B0400BF4B0E /* ModelLayer */,
+				EC53D3962311903100BF4B0E /* Utils */,
 				EC53D38B23118A7900BF4B0E /* SupporitngFiles */,
 				EC159420230F2CEC000A5592 /* Assets.xcassets */,
 			);
@@ -127,22 +132,22 @@
 		EC53D38B23118A7900BF4B0E /* SupporitngFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EC53D38C23118A8F00BF4B0E /* Flavours */,
 				EC159425230F2CEC000A5592 /* Info.plist */,
 				EC159419230F2CEB000A5592 /* AppDelegate.swift */,
-				EC53D38C23118A8F00BF4B0E /* Config */,
 				EC53D39323118BFA00BF4B0E /* Configuration.swift */,
 			);
 			path = SupporitngFiles;
 			sourceTree = "<group>";
 		};
-		EC53D38C23118A8F00BF4B0E /* Config */ = {
+		EC53D38C23118A8F00BF4B0E /* Flavours */ = {
 			isa = PBXGroup;
 			children = (
 				EC53D38A23118A0500BF4B0E /* Development.xcconfig */,
 				EC159449230F3889000A5592 /* Staging.xcconfig */,
 				EC159448230F3869000A5592 /* Production.xcconfig */,
 			);
-			path = Config;
+			path = Flavours;
 			sourceTree = "<group>";
 		};
 		EC53D38D23118AEF00BF4B0E /* UI */ = {
@@ -163,9 +168,26 @@
 		EC53D39123118B1900BF4B0E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC53D3992311923400BF4B0E /* Calculator */,
 				EC15941B230F2CEB000A5592 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EC53D3962311903100BF4B0E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EC53D3972311904E00BF4B0E /* CALog.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EC53D3992311923400BF4B0E /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */,
+			);
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +340,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */,
+				EC53D3982311904E00BF4B0E /* CALog.swift in Sources */,
 				EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */,
 				EC15941C230F2CEB000A5592 /* ViewController.swift in Sources */,
 				EC15941A230F2CEB000A5592 /* AppDelegate.swift in Sources */,

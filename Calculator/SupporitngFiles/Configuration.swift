@@ -14,7 +14,7 @@ enum Configuration {
     }
     
     static func value<T>(for key: String) throws -> T where T: LosslessStringConvertible {
-        guard let object = Bundle.main.object(forInfoDictionaryKey:key) else {
+        guard let object = Bundle.main.object(forInfoDictionaryKey: key) else {
             throw Error.missingKey
         }
         
@@ -31,6 +31,9 @@ enum Configuration {
 }
 
 enum API {
+    
+    // swiftlint:disable force_try
+    // Disabled the Lint: I think this is a straitfoward case. Maybe review it later
     static var baseURL: URL {
         return URL(string: try! Configuration.value(for: "API_BASE_URL"))!
     }
