@@ -47,9 +47,9 @@
 		EC159435230F2CEC000A5592 /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC159439230F2CEC000A5592 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		EC15943B230F2CEC000A5592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC159447230F3382000A5592 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC159448230F3869000A5592 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		EC159449230F3889000A5592 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				EC159420230F2CEC000A5592 /* Assets.xcassets */,
 				EC159422230F2CEC000A5592 /* LaunchScreen.storyboard */,
 				EC159425230F2CEC000A5592 /* Info.plist */,
-				EC159447230F3382000A5592 /* Development.xcconfig */,
+				EC53D38A23118A0500BF4B0E /* Development.xcconfig */,
 				EC159449230F3889000A5592 /* Staging.xcconfig */,
 				EC159448230F3869000A5592 /* Production.xcconfig */,
 			);
@@ -320,7 +320,6 @@
 /* Begin XCBuildConfiguration section */
 		EC15943C230F2CEC000A5592 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC159447230F3382000A5592 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
