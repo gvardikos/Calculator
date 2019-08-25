@@ -51,56 +51,56 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
     private var hRowStacjViewFour = CAHorizontalStackView()
     private var hRowStacjViewFive = CAHorizontalStackView(dist: .fill)
     
-    private var calculatorButton = CAButton(title: "AC", backgroundColor: orangeButtonColor)
-    private var calculatorButton2 = CAButton(title: "+/-", backgroundColor: orangeButtonColor)
-    private var calculatorButton3 = CAButton(title: "%", backgroundColor: orangeButtonColor)
-    private var calculatorButton4 = CAButton(title: "/", backgroundColor: orangeButtonColor)
+    private var CAACButton = CAButton(title: "AC", backgroundColor: orangeButtonColor)
+    private var CAPlusMinusButton2 = CAButton(title: "+/-", backgroundColor: orangeButtonColor)
+    private var CAPercentButton = CAButton(title: "%", backgroundColor: orangeButtonColor)
+    private var CADivideButton = CAButton(title: "/", backgroundColor: orangeButtonColor)
     
-    private var calculatorButton5 = CAButton(title: "7", backgroundColor: .gray)
-    private var calculatorButton6 = CAButton(title: "8", backgroundColor: .gray)
-    private var calculatorButton7 = CAButton(title: "9", backgroundColor: .gray)
-    private var calculatorButton8 = CAButton(title: "x", backgroundColor: orangeButtonColor)
+    private var CASevenButton = CAButton(title: "7", backgroundColor: .gray)
+    private var CAEightButton = CAButton(title: "8", backgroundColor: .gray)
+    private var CANineButton = CAButton(title: "9", backgroundColor: .gray)
+    private var CAMultiButton = CAButton(title: "x", backgroundColor: orangeButtonColor)
     
-    private var calculatorButton9 = CAButton(title: "4", backgroundColor: .gray)
-    private var calculatorButton10 = CAButton(title: "5", backgroundColor: .gray)
-    private var calculatorButton11 = CAButton(title: "6", backgroundColor: .gray)
-    private var calculatorButton12 = CAButton(title: "-", backgroundColor: orangeButtonColor)
+    private var CAFourButton = CAButton(title: "4", backgroundColor: .gray)
+    private var CAFiveButton = CAButton(title: "5", backgroundColor: .gray)
+    private var CASixButton = CAButton(title: "6", backgroundColor: .gray)
+    private var CAMinusButton = CAButton(title: "-", backgroundColor: orangeButtonColor)
     
-    private var calculatorButton13 = CAButton(title: "1", backgroundColor: .gray)
-    private var calculatorButton14 = CAButton(title: "2", backgroundColor: .gray)
-    private var calculatorButton15 = CAButton(title: "3", backgroundColor: .gray)
-    private var calculatorButton16 = CAButton(title: "+", backgroundColor: orangeButtonColor)
+    private var CAOneButton = CAButton(title: "1", backgroundColor: .gray)
+    private var CATwoButton = CAButton(title: "2", backgroundColor: .gray)
+    private var CAThreeButton = CAButton(title: "3", backgroundColor: .gray)
+    private var CAPlusButton = CAButton(title: "+", backgroundColor: orangeButtonColor)
     
-    private var calculatorButton17 = CAButton(title: "0", backgroundColor: .gray)
-    private var calculatorButton18 = CAButton(title: ",", backgroundColor: .gray)
-    private var calculatorButton20 = CAButton(title: "=", backgroundColor: orangeButtonColor)
+    private var CAZeroButton = CAButton(title: "0", backgroundColor: .gray)
+    private var CACommaButton = CAButton(title: ",", backgroundColor: .gray)
+    private var CAEqualsButton = CAButton(title: "=", backgroundColor: orangeButtonColor)
     
     override func addSubviewsWithSvh() {
         displayView.sv([displayLabel])
         
-        hRowStacjViewOne.addArrangedSubview(calculatorButton)
-        hRowStacjViewOne.addArrangedSubview(calculatorButton2)
-        hRowStacjViewOne.addArrangedSubview(calculatorButton3)
-        hRowStacjViewOne.addArrangedSubview(calculatorButton4)
+        hRowStacjViewOne.addArrangedSubview(CAACButton)
+        hRowStacjViewOne.addArrangedSubview(CAPlusMinusButton2)
+        hRowStacjViewOne.addArrangedSubview(CAPercentButton)
+        hRowStacjViewOne.addArrangedSubview(CADivideButton)
         
-        hRowStacjViewTwo.addArrangedSubview(calculatorButton5)
-        hRowStacjViewTwo.addArrangedSubview(calculatorButton6)
-        hRowStacjViewTwo.addArrangedSubview(calculatorButton7)
-        hRowStacjViewTwo.addArrangedSubview(calculatorButton8)
+        hRowStacjViewTwo.addArrangedSubview(CASevenButton)
+        hRowStacjViewTwo.addArrangedSubview(CAEightButton)
+        hRowStacjViewTwo.addArrangedSubview(CANineButton)
+        hRowStacjViewTwo.addArrangedSubview(CAMultiButton)
         
-        hRowStacjViewThree.addArrangedSubview(calculatorButton9)
-        hRowStacjViewThree.addArrangedSubview(calculatorButton10)
-        hRowStacjViewThree.addArrangedSubview(calculatorButton11)
-        hRowStacjViewThree.addArrangedSubview(calculatorButton12)
+        hRowStacjViewThree.addArrangedSubview(CAFourButton)
+        hRowStacjViewThree.addArrangedSubview(CAFiveButton)
+        hRowStacjViewThree.addArrangedSubview(CASixButton)
+        hRowStacjViewThree.addArrangedSubview(CAMinusButton)
         
-        hRowStacjViewFour.addArrangedSubview(calculatorButton13)
-        hRowStacjViewFour.addArrangedSubview(calculatorButton14)
-        hRowStacjViewFour.addArrangedSubview(calculatorButton15)
-        hRowStacjViewFour.addArrangedSubview(calculatorButton16)
+        hRowStacjViewFour.addArrangedSubview(CAOneButton)
+        hRowStacjViewFour.addArrangedSubview(CATwoButton)
+        hRowStacjViewFour.addArrangedSubview(CAThreeButton)
+        hRowStacjViewFour.addArrangedSubview(CAPlusButton)
         
-        hRowStacjViewFive.addArrangedSubview(calculatorButton17)
-        hRowStacjViewFive.addArrangedSubview(calculatorButton18)
-        hRowStacjViewFive.addArrangedSubview(calculatorButton20)
+        hRowStacjViewFive.addArrangedSubview(CAZeroButton)
+        hRowStacjViewFive.addArrangedSubview(CACommaButton)
+        hRowStacjViewFive.addArrangedSubview(CAEqualsButton)
 
         verticalStackView.addArrangedSubview(hRowStacjViewOne)
         verticalStackView.addArrangedSubview(hRowStacjViewTwo)
@@ -185,7 +185,7 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
         hRowStacjViewThree.Height == hRowStacjViewFour.Height
         hRowStacjViewFour.Height == hRowStacjViewFive.Height
         
-        calculatorButton17.Width == hRowStacjViewFive.Width * 1/2 - 0.5
-        calculatorButton18.Width == calculatorButton20.Width
+        CAZeroButton.Width == hRowStacjViewFive.Width * 1/2 - 0.5
+        CACommaButton.Width == CAEqualsButton.Width
     }
 }

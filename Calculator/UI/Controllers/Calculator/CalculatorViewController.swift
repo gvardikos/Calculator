@@ -9,7 +9,9 @@
 import Stevia
 
 extension CalculatorViewController {
-    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
 
 final public class CalculatorViewController: BaseViewController {

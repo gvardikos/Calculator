@@ -20,4 +20,3 @@ public class BaseViewController: UIViewController {
         CALog.shared.log(message: String(describing: self))
     }
 }
-
