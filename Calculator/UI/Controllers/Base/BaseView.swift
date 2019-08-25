@@ -31,22 +31,8 @@ class BaseView<VM>: UIView {
         self.initialize()
     }
     
-    final private func initialize() {
-        self.addSubviewsWithSvh()
-        self.initStyle()
-        self.initContraints()
-    }
-    
-    public func addSubviewsWithSvh() {
-        fatalError("Must be overriden")
-    }
-    
-    public func initStyle() {
-        fatalError("Must be overriden")
-    }
-    
-    public func initContraints() {
-        fatalError("Must be overriden")
+    public func initialize() {
+
     }
     
     public func bind() {

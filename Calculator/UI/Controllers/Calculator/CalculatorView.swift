@@ -51,35 +51,118 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
     private var hRowStacjViewFour = CAHorizontalStackView()
     private var hRowStacjViewFive = CAHorizontalStackView(dist: .fill)
     
-    private var CAACButton = CAButton(title: "AC", backgroundColor: orangeButtonColor)
-    private var CAPlusMinusButton2 = CAButton(title: "+/-", backgroundColor: orangeButtonColor)
-    private var CAPercentButton = CAButton(title: "%", backgroundColor: orangeButtonColor)
-    private var CADivideButton = CAButton(title: "/", backgroundColor: orangeButtonColor)
+    // One
+    lazy var CAACButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "AC", backgroundColor: orangeButtonColor)
+        return button
+    }()
     
-    private var CASevenButton = CAButton(title: "7", backgroundColor: .gray)
-    private var CAEightButton = CAButton(title: "8", backgroundColor: .gray)
-    private var CANineButton = CAButton(title: "9", backgroundColor: .gray)
-    private var CAMultiButton = CAButton(title: "x", backgroundColor: orangeButtonColor)
+    lazy var CAPlusMinusButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "+/-", backgroundColor: orangeButtonColor)
+        return button
+    }()
     
-    private var CAFourButton = CAButton(title: "4", backgroundColor: .gray)
-    private var CAFiveButton = CAButton(title: "5", backgroundColor: .gray)
-    private var CASixButton = CAButton(title: "6", backgroundColor: .gray)
-    private var CAMinusButton = CAButton(title: "-", backgroundColor: orangeButtonColor)
+    lazy var CAPercentButton: CAButton = { [unowned self] in
+        let button =  CAButton(title: "%", backgroundColor: orangeButtonColor)
+        return button
+    }()
     
-    private var CAOneButton = CAButton(title: "1", backgroundColor: .gray)
-    private var CATwoButton = CAButton(title: "2", backgroundColor: .gray)
-    private var CAThreeButton = CAButton(title: "3", backgroundColor: .gray)
-    private var CAPlusButton = CAButton(title: "+", backgroundColor: orangeButtonColor)
+    lazy var CADivideButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "/", backgroundColor: orangeButtonColor)
+        return button
+    }()
     
-    private var CAZeroButton = CAButton(title: "0", backgroundColor: .gray)
-    private var CACommaButton = CAButton(title: ",", backgroundColor: .gray)
-    private var CAEqualsButton = CAButton(title: "=", backgroundColor: orangeButtonColor)
+    // Two
+    lazy var CASevenButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "7", backgroundColor: .gray)
+        return button
+    }()
     
-    override func addSubviewsWithSvh() {
+    lazy var CAEightButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "8", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CANineButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "9", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CAMultiButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "x", backgroundColor: orangeButtonColor)
+        return button
+    }()
+    
+    // Three
+    lazy var CAFourButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "4", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CAFiveButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "5", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CASixButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "6", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CAMinusButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "-", backgroundColor: orangeButtonColor)
+        return button
+        }()
+    
+    // Four
+    lazy var CAOneButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "1", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CATwoButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "2", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CAThreeButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "3", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CAPlusButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "+", backgroundColor: orangeButtonColor)
+        return button
+        }()
+    
+    // Five
+    lazy var CAZeroButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "0", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CACommaButton: CAButton = { [unowned self] in
+        let button = CAButton(title: ",", backgroundColor: .gray)
+        return button
+    }()
+    
+    lazy var CAEqualsButton: CAButton = { [unowned self] in
+        let button = CAButton(title: "=", backgroundColor: orangeButtonColor)
+        return button
+    }()
+    
+    override func initialize() {
+        addSubviewsWithSvh()
+        initContraints()
+    }
+}
+
+extension CalculatorView {
+    func addSubviewsWithSvh() {
         displayView.sv([displayLabel])
         
         hRowStacjViewOne.addArrangedSubview(CAACButton)
-        hRowStacjViewOne.addArrangedSubview(CAPlusMinusButton2)
+        hRowStacjViewOne.addArrangedSubview(CAPlusMinusButton)
         hRowStacjViewOne.addArrangedSubview(CAPercentButton)
         hRowStacjViewOne.addArrangedSubview(CADivideButton)
         
@@ -101,7 +184,7 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
         hRowStacjViewFive.addArrangedSubview(CAZeroButton)
         hRowStacjViewFive.addArrangedSubview(CACommaButton)
         hRowStacjViewFive.addArrangedSubview(CAEqualsButton)
-
+        
         verticalStackView.addArrangedSubview(hRowStacjViewOne)
         verticalStackView.addArrangedSubview(hRowStacjViewTwo)
         verticalStackView.addArrangedSubview(hRowStacjViewThree)
@@ -113,12 +196,8 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
         container.sv([displayView, buttonsView])
         sv([container])
     }
-    
-    override func initStyle() {
-        
-    }
-    
-    override func initContraints() {
+
+    func initContraints() {
         // Containers
         setupContainer()
         setupDisplayView()
