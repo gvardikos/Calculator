@@ -19,6 +19,9 @@
 		EC47232C2311962600635D64 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47232B2311962600635D64 /* CalculatorView.swift */; };
 		EC47232E2311967200635D64 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47232D2311967200635D64 /* BaseView.swift */; };
 		EC472330231196A600635D64 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47232F231196A600635D64 /* CalculatorViewModel.swift */; };
+		EC47233423128A0C00635D64 /* CAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47233323128A0C00635D64 /* CAButton.swift */; };
+		EC4723362312A30600635D64 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723352312A30600635D64 /* Constants.swift */; };
+		EC4723382312A62C00635D64 /* CAHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
 		EC53D3982311904E00BF4B0E /* CALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D3972311904E00BF4B0E /* CALog.swift */; };
 		EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */; };
@@ -71,6 +74,9 @@
 		EC47232B2311962600635D64 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		EC47232D2311967200635D64 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		EC47232F231196A600635D64 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
+		EC47233323128A0C00635D64 /* CAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAButton.swift; sourceTree = "<group>"; };
+		EC4723352312A30600635D64 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAHorizontalStackView.swift; sourceTree = "<group>"; };
 		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC53D39323118BFA00BF4B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EC53D3972311904E00BF4B0E /* CALog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALog.swift; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				EC53D39123118B1900BF4B0E /* Controllers */,
+				EC47233323128A0C00635D64 /* CAButton.swift */,
+				EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				EC53D3972311904E00BF4B0E /* CALog.swift */,
+				EC4723352312A30600635D64 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -494,8 +503,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC47232E2311967200635D64 /* BaseView.swift in Sources */,
+				EC4723362312A30600635D64 /* Constants.swift in Sources */,
 				EC472330231196A600635D64 /* CalculatorViewModel.swift in Sources */,
+				EC47233423128A0C00635D64 /* CAButton.swift in Sources */,
 				EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */,
+				EC4723382312A62C00635D64 /* CAHorizontalStackView.swift in Sources */,
 				EC47232C2311962600635D64 /* CalculatorView.swift in Sources */,
 				EC53D3982311904E00BF4B0E /* CALog.swift in Sources */,
 				EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */,
