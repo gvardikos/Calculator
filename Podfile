@@ -6,7 +6,8 @@ target 'Calculator' do
   use_frameworks!
 
   # Pods for Calculator
-  pod 'SteviaLayout' 
+  pod 'SteviaLayout'
+  pod 'Alamofire'
 
   target 'CalculatorTests' do
     inherit! :search_paths
