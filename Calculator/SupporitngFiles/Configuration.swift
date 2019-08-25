@@ -31,11 +31,11 @@ enum Configuration {
 }
 
 enum API {
-    
     // swiftlint:disable force_try
     // Disabled the Lint: I think this is a straitfoward case. Maybe review it later
     static var baseURL: URL {
-        return URL(string: try! Configuration.value(for: "API_BASE_URL"))!
+        let base: String = try! Configuration.value(for: "API_BASE_URL")
+        return URL(string: "https://" + base)!
     }
     
     static var key: String {

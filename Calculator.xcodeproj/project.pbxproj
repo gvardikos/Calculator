@@ -23,6 +23,8 @@
 		EC4723362312A30600635D64 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723352312A30600635D64 /* Constants.swift */; };
 		EC4723382312A62C00635D64 /* CAHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */; };
 		EC47233C2312B7B800635D64 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47233B2312B7B800635D64 /* Observable.swift */; };
+		EC47233F2312CCE100635D64 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47233E2312CCE100635D64 /* NetworkLayer.swift */; };
+		EC4723432312D05F00635D64 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723422312D05F00635D64 /* Request.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
 		EC53D3982311904E00BF4B0E /* CALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D3972311904E00BF4B0E /* CALog.swift */; };
 		EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */; };
@@ -79,6 +81,8 @@
 		EC4723352312A30600635D64 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAHorizontalStackView.swift; sourceTree = "<group>"; };
 		EC47233B2312B7B800635D64 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		EC47233E2312CCE100635D64 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		EC4723422312D05F00635D64 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC53D39323118BFA00BF4B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EC53D3972311904E00BF4B0E /* CALog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALog.swift; sourceTree = "<group>"; };
@@ -200,6 +204,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		EC47233D2312CCD300635D64 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EC47233E2312CCE100635D64 /* NetworkLayer.swift */,
+				EC4723422312D05F00635D64 /* Request.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		EC53D38B23118A7900BF4B0E /* SupporitngFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +248,7 @@
 		EC53D39023118B0400BF4B0E /* ModelLayer */ = {
 			isa = PBXGroup;
 			children = (
+				EC47233D2312CCD300635D64 /* Network */,
 			);
 			path = ModelLayer;
 			sourceTree = "<group>";
@@ -505,12 +519,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC47233F2312CCE100635D64 /* NetworkLayer.swift in Sources */,
 				EC47233C2312B7B800635D64 /* Observable.swift in Sources */,
 				EC47232E2311967200635D64 /* BaseView.swift in Sources */,
 				EC4723362312A30600635D64 /* Constants.swift in Sources */,
 				EC472330231196A600635D64 /* CalculatorViewModel.swift in Sources */,
 				EC47233423128A0C00635D64 /* CAButton.swift in Sources */,
 				EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */,
+				EC4723432312D05F00635D64 /* Request.swift in Sources */,
 				EC4723382312A62C00635D64 /* CAHorizontalStackView.swift in Sources */,
 				EC47232C2311962600635D64 /* CalculatorView.swift in Sources */,
 				EC53D3982311904E00BF4B0E /* CALog.swift in Sources */,
