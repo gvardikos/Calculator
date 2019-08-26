@@ -66,104 +66,33 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
     private var hRowStacjViewFive = CAHorizontalStackView(dist: .fill)
     
     // One
-    lazy var CAACButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .clear, title: "AC", backgroundColor: orangeButtonColor)
-        return button
-    }()
-    
-    lazy var CAPlusMinusButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .function, title: "+/-", backgroundColor: orangeButtonColor)
-        return button
-    }()
-    
-    lazy var CAPercentButton: CAButton = { [unowned self] in
-        let button =  CAButton(op: .function, title: "%", backgroundColor: orangeButtonColor)
-        return button
-    }()
-    
-    lazy var CADivideButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .function, title: "/", backgroundColor: orangeButtonColor)
-        return button
-    }()
+    private let CAACButton = CAButton(op: .clear, title: "AC", backgroundColor: orangeButtonColor)
+    private let CAPlusMinusButton = CAButton(op: .function, title: "+/-", backgroundColor: orangeButtonColor)
+    private let CAPercentButton =  CAButton(op: .function, title: "%", backgroundColor: orangeButtonColor)
+    private let CADivideButton = CAButton(op: .function, title: "/", backgroundColor: orangeButtonColor)
     
     // Two
-    lazy var CASevenButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "7", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CAEightButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "8", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CANineButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "9", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CAMultiButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .function, title: "*", backgroundColor: orangeButtonColor)
-        return button
-    }()
+    private let CASevenButton = CAButton(op: .number, title: "7", backgroundColor: .gray)
+    private let CAEightButton = CAButton(op: .number, title: "8", backgroundColor: .gray)
+    private let CANineButton = CAButton(op: .number, title: "9", backgroundColor: .gray)
+    private let CAMultiButton = CAButton(op: .function, title: "*", backgroundColor: orangeButtonColor)
     
     // Three
-    lazy var CAFourButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "4", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CAFiveButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "5", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CASixButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "6", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CAMinusButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .function, title: "-", backgroundColor: orangeButtonColor)
-        return button
-        }()
-    
+    private let CAFourButton = CAButton(op: .number, title: "4", backgroundColor: .gray)
+    private let CAFiveButton = CAButton(op: .number, title: "5", backgroundColor: .gray)
+    private let CASixButton = CAButton(op: .number, title: "6", backgroundColor: .gray)
+    private let CAMinusButton = CAButton(op: .function, title: "-", backgroundColor: orangeButtonColor)
+
     // Four
-    lazy var CAOneButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "1", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CATwoButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "2", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CAThreeButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "3", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CAPlusButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .function, title: "+", backgroundColor: orangeButtonColor)
-        return button
-        }()
-    
+    private let CAOneButton = CAButton(op: .number, title: "1", backgroundColor: .gray)
+    private let CATwoButton = CAButton(op: .number, title: "2", backgroundColor: .gray)
+    private let CAThreeButton = CAButton(op: .number, title: "3", backgroundColor: .gray)
+    private let CAPlusButton = CAButton(op: .function, title: "+", backgroundColor: orangeButtonColor)
+
     // Five
-    lazy var CAZeroButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .number, title: "0", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CACommaButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .function, title: ",", backgroundColor: .gray)
-        return button
-    }()
-    
-    lazy var CAEqualsButton: CAButton = { [unowned self] in
-        let button = CAButton(op: .equal, title: "=", backgroundColor: orangeButtonColor)
-        return button
-    }()
+    private let CAZeroButton = CAButton(op: .number, title: "0", backgroundColor: .gray)
+    private let CACommaButton = CAButton(op: .function, title: ",", backgroundColor: .gray)
+    private let CAEqualsButton = CAButton(op: .equal, title: "=", backgroundColor: orangeButtonColor)
     
     fileprivate lazy var calcButtons: [CAButton] = [CAACButton, CAPlusMinusButton, CAPercentButton, CADivideButton, CASevenButton, CAEightButton, CANineButton, CAMultiButton, CAFourButton, CAFiveButton, CASixButton, CAMinusButton, CAOneButton, CATwoButton, CAThreeButton, CAPlusButton, CAZeroButton, CACommaButton, CAEqualsButton]
     
