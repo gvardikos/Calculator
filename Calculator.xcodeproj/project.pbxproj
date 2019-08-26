@@ -27,6 +27,7 @@
 		EC4723462313324100635D64 /* LatestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723452313324100635D64 /* LatestDTO.swift */; };
 		EC472348231338AE00635D64 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC472347231338AE00635D64 /* Parser.swift */; };
 		EC47234A2313390500635D64 /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723492313390500635D64 /* BaseParser.swift */; };
+		EC48F8812314438700181AD6 /* CalculatorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F8802314438700181AD6 /* CalculatorViewModelTests.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
 		EC53D3982311904E00BF4B0E /* CALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D3972311904E00BF4B0E /* CALog.swift */; };
 		EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */; };
@@ -87,6 +88,7 @@
 		EC4723452313324100635D64 /* LatestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestDTO.swift; sourceTree = "<group>"; };
 		EC472347231338AE00635D64 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		EC4723492313390500635D64 /* BaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
+		EC48F8802314438700181AD6 /* CalculatorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModelTests.swift; sourceTree = "<group>"; };
 		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC53D39323118BFA00BF4B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EC53D3972311904E00BF4B0E /* CALog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALog.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				EC15942E230F2CEC000A5592 /* CalculatorTests.swift */,
+				EC48F8802314438700181AD6 /* CalculatorViewModelTests.swift */,
 				EC159430230F2CEC000A5592 /* Info.plist */,
 			);
 			path = CalculatorTests;
@@ -557,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC48F8812314438700181AD6 /* CalculatorViewModelTests.swift in Sources */,
 				EC15942F230F2CEC000A5592 /* CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

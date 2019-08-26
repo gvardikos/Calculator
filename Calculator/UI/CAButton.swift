@@ -9,18 +9,23 @@
 import Stevia
 
 enum OperatorType {
-    case equal, clear, function
+    case number, equal, clear, function
 }
 
 final class CAButton: UIButton {
-    var operation: String!
+    var operationType: OperatorType
+    var operation: String
     
-    convenience init(title: String, backgroundColor: UIColor) {
+    convenience init(op: OperatorType, title: String, backgroundColor: UIColor) {
         self.init(type: .system)
-        initialize(title, backgroundColor)
+        operationType = op
+        operation = title
+        initialize(op, title, backgroundColor)
     }
     
     override init(frame: CGRect) {
+        operationType = .function
+        operation = ""
         super.init(frame: .zero)
         initialize()
     }
@@ -29,7 +34,7 @@ final class CAButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func initialize(_ title: String = "7", _ backColor: UIColor = .white) {
+    private func initialize(_ op: OperatorType = .function, _ title: String = "7", _ backColor: UIColor = .white) {
         setTitle(title, for: .normal)
         setTitleColor(.white, for: .normal)
         backgroundColor = backColor
