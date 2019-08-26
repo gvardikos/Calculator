@@ -27,6 +27,11 @@ final public class FixerRepository {
 }
 
 extension FixerRepository: IFixerRepository {
+    /// Calls http://fixer.io API 'latest' enpoint
+    ///
+    /// - Parameters:
+    ///   - symbols: currencies to return
+    ///   - completion: (LatestDTO?, Error?) -> Void
     func fetchLatest(symbols: String, completion: @escaping FetchLatestCallback) {
         networkLayer.fetchLatest(symbols: "") { [unowned self] (response, error) in
             if let err = error {
@@ -39,7 +44,6 @@ extension FixerRepository: IFixerRepository {
             }
             
             if let response = self.parser.parseLatest(safeResponse) {
-                CALog.shared.logRaw(response)
                 completion(response, nil)
             } else {
                 completion(nil, NetworkError.server(message: couldNotParseResponseMessage))

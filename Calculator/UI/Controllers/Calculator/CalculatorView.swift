@@ -34,7 +34,8 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .black
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "id")
+        cv.register(CurrenciesCVCell.self,
+                    forCellWithReuseIdentifier: CurrenciesCVCell.reuseIdentifier)
         cv.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         cv.delegate = self
         cv.dataSource = self
@@ -114,6 +115,10 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
         viewModel?.screenText.bind(listener: { [unowned self] (text) in
             self.displayLabel.text? = text
         })
+        
+        viewModel?.currencyData.bind(listener: { (_) in
+            self.currencyCollectionView.reloadData()
+        })
     }
 }
 
@@ -128,13 +133,15 @@ extension CalculatorView: UICollectionViewDelegateFlowLayout {
 
 extension CalculatorView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return viewModel?.currencyData.value.keys.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = currencyCollectionView.dequeueReusableCell(withReuseIdentifier: "id",
-                                                              for: indexPath)
-        cell.backgroundColor = .blue
+        guard let cell = currencyCollectionView.dequeueReusableCell(
+            withReuseIdentifier: CurrenciesCVCell.reuseIdentifier,
+            for: indexPath) as? CurrenciesCVCell else { return UICollectionViewCell() }
+        
+        cell.backgroundColor = .yellow
         return cell
     }
 }

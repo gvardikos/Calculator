@@ -8,7 +8,7 @@
 
 import Alamofire
 
-internal enum Router: URLRequestConvertible {
+enum Router: URLRequestConvertible {
     case latest(_ symbols: String)
     
     var httpMethod: HTTPMethod {
@@ -41,9 +41,7 @@ internal enum Router: URLRequestConvertible {
             request = try URLEncoding.default.encode(request, with: parameters)
         }
 
-        CALog.shared.logRaw(request)
+        CALog.shared.logRaw("[CARequest]: \(request)")
         return request
     }
 }
-
-

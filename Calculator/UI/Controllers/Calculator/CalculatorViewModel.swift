@@ -9,9 +9,17 @@ import Foundation
 
 final class CalculatorViewModel {
     public var screenText = Observable<String>("0")
+    public var currencyData = Observable<[String: Double]>([String: Double]())
     
     private var text: String
     private var shouldClearScreen: Bool
+    private var shouldCalculateCurrencies: Bool
+    
+    private var latestDto: LatestDTO? {
+        didSet {
+            shouldCalculateCurrencies = true
+        }
+    }
     
     // Keeping the operations so I can provide history to the user
     private var operations = [String]() {
@@ -23,6 +31,9 @@ final class CalculatorViewModel {
     init() {
         text = ""
         shouldClearScreen = false
+        shouldCalculateCurrencies = false
+        
+        fetchCurrencies()
     }
 
     /// Pass the event of the user to handle the operation
@@ -38,9 +49,13 @@ final class CalculatorViewModel {
             screenText.value = result
             text.removeAll()
             text = result
+            if shouldCalculateCurrencies {
+                calculateCurrencies(result: result)
+            }
         case .clear:
             text.removeAll()
             screenText.value = "0"
+            currencyData.value.removeAll()
         case .number:
             if screenText.value == "0" { screenText.value = "" }
             text.append(input)
@@ -72,5 +87,32 @@ final class CalculatorViewModel {
         }
         return result
     }
+    
+    private func fetchCurrencies() {
+        FixerRepository.shared.fetchLatest(symbols: "GBP,USD") { [unowned self] (responseDto, error) in
+            if let err = error {
+                CALog.shared.logRaw(err)
+                return
+            }
+            
+            guard let dto = responseDto else {
+                CALog.shared.log(message: couldNotParseResponseMessage)
+                return
+            }
+            
+            self.latestDto = dto
+        }
+    }
+    
+    private func calculateCurrencies(result: String) {
+        let gbpRate = latestDto?.rates.GBP ?? 0
+        let usdRate = latestDto?.rates.USD ?? 0
+        
+        let doubleResult = Double(result) ?? 0
+        var tempDict = [String: Double]()
+        tempDict.updateValue(gbpRate * doubleResult, forKey: "GBP")
+        tempDict.updateValue(usdRate * doubleResult, forKey: "USD")
+        
+        currencyData.value = tempDict
+    }
 }
-
