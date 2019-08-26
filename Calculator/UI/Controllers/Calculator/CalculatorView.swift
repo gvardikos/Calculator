@@ -8,6 +8,8 @@
 
 import Stevia
 
+// TODO: Separate the Views into new files
+
 final class CalculatorView: BaseView<CalculatorViewModel> {
     lazy var container: UIView = { [unowned self] in
         let v = UIView()
@@ -25,6 +27,18 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
         let v = UIView()
         v.backgroundColor = .black
         return v
+    }()
+    
+    lazy var currencyCollectionView: UICollectionView = { [unowned self] in
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .black
+        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "id")
+        cv.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        cv.delegate = self
+        cv.dataSource = self
+        return cv
     }()
     
     lazy var displayLabel: UILabel = { [unowned self] in
@@ -174,9 +188,31 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
     }
 }
 
+extension CalculatorView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width / 2 - 16
+        let height: CGFloat = displayView.frame.height * 0.20
+        
+        return CGSize(width: width, height: CGFloat(height))
+    }
+}
+
+extension CalculatorView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = currencyCollectionView.dequeueReusableCell(withReuseIdentifier: "id",
+                                                              for: indexPath)
+        cell.backgroundColor = .blue
+        return cell
+    }
+}
+
 extension CalculatorView {
     func addSubviewsWithSvh() {
-        displayView.sv([displayLabel])
+        displayView.sv([currencyCollectionView, displayLabel])
         
         hRowStacjViewOne.addArrangedSubview(CAACButton)
         hRowStacjViewOne.addArrangedSubview(CAPlusMinusButton)
@@ -220,6 +256,7 @@ extension CalculatorView {
         setupDisplayView()
         setupButtonsView()
         
+        setupCurrencyCollectionView()
         setupDisplayLabel()
         setupVerticalStackView()
         setupHorizontalStackView()
@@ -234,6 +271,13 @@ extension CalculatorView {
         displayView.Left == container.Left
         displayView.Right == container.Right
         displayView.height(30%)
+    }
+    
+    private func setupCurrencyCollectionView() {
+        currencyCollectionView.Top == safeAreaLayoutGuide.Top
+        currencyCollectionView.Left == displayView.Left
+        currencyCollectionView.Right == displayView.Right
+        currencyCollectionView.Bottom == displayLabel.Top
     }
     
     private func setupDisplayLabel() {
