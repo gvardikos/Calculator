@@ -33,7 +33,7 @@ extension FixerRepository: IFixerRepository {
     ///   - symbols: currencies to return
     ///   - completion: (LatestDTO?, Error?) -> Void
     func fetchLatest(symbols: String, completion: @escaping FetchLatestCallback) {
-        networkLayer.fetchLatest(symbols: "") { [unowned self] (response, error) in
+        networkLayer.fetchLatest(symbols: symbols) { [unowned self] (response, error) in
             if let err = error {
                 completion(nil, RepositoryError.CAError(error: err))
                 return

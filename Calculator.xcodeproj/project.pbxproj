@@ -32,6 +32,7 @@
 		EC48F8882314533000181AD6 /* IFixerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F8872314533000181AD6 /* IFixerRepository.swift */; };
 		EC48F88A2314622A00181AD6 /* CurrenciesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F8892314622A00181AD6 /* CurrenciesCVCell.swift */; };
 		EC48F88C2314627400181AD6 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F88B2314627400181AD6 /* BaseCVCell.swift */; };
+		EC48F88E2314796000181AD6 /* CurrencyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F88D2314796000181AD6 /* CurrencyCellViewModel.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
 		EC53D3982311904E00BF4B0E /* CALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D3972311904E00BF4B0E /* CALog.swift */; };
 		EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */; };
@@ -97,6 +98,7 @@
 		EC48F8872314533000181AD6 /* IFixerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFixerRepository.swift; sourceTree = "<group>"; };
 		EC48F8892314622A00181AD6 /* CurrenciesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesCVCell.swift; sourceTree = "<group>"; };
 		EC48F88B2314627400181AD6 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
+		EC48F88D2314796000181AD6 /* CurrencyCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellViewModel.swift; sourceTree = "<group>"; };
 		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC53D39323118BFA00BF4B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EC53D3972311904E00BF4B0E /* CALog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALog.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				EC47232B2311962600635D64 /* CalculatorView.swift */,
 				EC47232F231196A600635D64 /* CalculatorViewModel.swift */,
 				EC48F8892314622A00181AD6 /* CurrenciesCVCell.swift */,
+				EC48F88D2314796000181AD6 /* CurrencyCellViewModel.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				EC47233423128A0C00635D64 /* CAButton.swift in Sources */,
 				EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */,
 				EC4723432312D05F00635D64 /* Router.swift in Sources */,
+				EC48F88E2314796000181AD6 /* CurrencyCellViewModel.swift in Sources */,
 				EC4723382312A62C00635D64 /* CAHorizontalStackView.swift in Sources */,
 				EC48F88A2314622A00181AD6 /* CurrenciesCVCell.swift in Sources */,
 				EC47232C2311962600635D64 /* CalculatorView.swift in Sources */,

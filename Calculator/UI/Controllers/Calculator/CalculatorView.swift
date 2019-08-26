@@ -68,8 +68,8 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
     
     // One
     private let CAACButton = CAButton(op: .clear, title: "AC", backgroundColor: orangeButtonColor)
-    private let CAPlusMinusButton = CAButton(op: .function, title: "+/-", backgroundColor: orangeButtonColor)
-    private let CAPercentButton =  CAButton(op: .function, title: "%", backgroundColor: orangeButtonColor)
+    private let CAPlusMinusButton = CAButton(op: .minusPlus, title: "+/-", backgroundColor: orangeButtonColor)
+    private let CAPercentButton =  CAButton(op: .percent, title: "%", backgroundColor: orangeButtonColor)
     private let CADivideButton = CAButton(op: .function, title: "/", backgroundColor: orangeButtonColor)
     
     // Two
@@ -92,7 +92,7 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
 
     // Five
     private let CAZeroButton = CAButton(op: .number, title: "0", backgroundColor: .gray)
-    private let CACommaButton = CAButton(op: .function, title: ",", backgroundColor: .gray)
+    private let CACommaButton = CAButton(op: .number, title: ".", backgroundColor: .gray)
     private let CAEqualsButton = CAButton(op: .equal, title: "=", backgroundColor: orangeButtonColor)
     
     fileprivate lazy var calcButtons: [CAButton] = [CAACButton, CAPlusMinusButton, CAPercentButton, CADivideButton, CASevenButton, CAEightButton, CANineButton, CAMultiButton, CAFourButton, CAFiveButton, CASixButton, CAMinusButton, CAOneButton, CATwoButton, CAThreeButton, CAPlusButton, CAZeroButton, CACommaButton, CAEqualsButton]
@@ -124,7 +124,7 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
 
 extension CalculatorView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = UIScreen.main.bounds.width / 2 - 16
+        let width = UIScreen.main.bounds.width / 3.5 - 16
         let height: CGFloat = displayView.frame.height * 0.20
         
         return CGSize(width: width, height: CGFloat(height))
@@ -133,7 +133,7 @@ extension CalculatorView: UICollectionViewDelegateFlowLayout {
 
 extension CalculatorView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.currencyData.value.keys.count ?? 0
+        return viewModel?.currencyData.value.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -141,7 +141,8 @@ extension CalculatorView: UICollectionViewDataSource {
             withReuseIdentifier: CurrenciesCVCell.reuseIdentifier,
             for: indexPath) as? CurrenciesCVCell else { return UICollectionViewCell() }
         
-        cell.backgroundColor = .yellow
+        let rateDict = viewModel?.currencyData.value[indexPath.item] ?? [:]
+        cell.setup(viewModel: CurrencyCellViewModel(rate: rateDict))
         return cell
     }
 }

@@ -13,6 +13,9 @@ struct LatestDTO: Codable {
     struct Rates: Codable {
         let GBP: Double
         let USD: Double
+        let JPY: Double
+        let AED: Double
+        let AFN: Double
     }
     
     let success: Bool

@@ -9,11 +9,12 @@ import Foundation
 
 final class CalculatorViewModel {
     public var screenText = Observable<String>("0")
-    public var currencyData = Observable<[String: Double]>([String: Double]())
+    public var currencyData = Observable<[[String: Double]]>([[String: Double]]())
     
-    private var text: String
+    private var text: [String]
     private var shouldClearScreen: Bool
     private var shouldCalculateCurrencies: Bool
+    private var isLocked: Bool
     
     private var latestDto: LatestDTO? {
         didSet {
@@ -21,17 +22,11 @@ final class CalculatorViewModel {
         }
     }
     
-    // Keeping the operations so I can provide history to the user
-    private var operations = [String]() {
-        didSet {
-            operations.reverse()
-        }
-    }
-    
     init() {
-        text = ""
+        text = [String]()
         shouldClearScreen = false
         shouldCalculateCurrencies = false
+        isLocked = false
         
         fetchCurrencies()
     }
@@ -41,14 +36,16 @@ final class CalculatorViewModel {
     /// - Parameter sender: CAButton
     final public func handle(_ sender: CAButton) {
         sender.zoomIn()
+        
         let input = sender.titleLabel?.text ?? "0"
         
         switch sender.operationType {
         case .equal:
+            guard !isLocked else { break }
             let result = doMath(text: text)
             screenText.value = result
             text.removeAll()
-            text = result
+            text.append(result)
             if shouldCalculateCurrencies {
                 calculateCurrencies(result: result)
             }
@@ -58,6 +55,7 @@ final class CalculatorViewModel {
             currencyData.value.removeAll()
         case .number:
             if screenText.value == "0" { screenText.value = "" }
+            if isLocked { isLocked = false }
             text.append(input)
             if shouldClearScreen {
                 screenText.value = input
@@ -65,17 +63,33 @@ final class CalculatorViewModel {
             } else {
                 screenText.value += input
             }
-            operations.append(screenText.value)
         case .function:
-            text.append(input)
-            operations.append(screenText.value)
+            isLocked = true
             shouldClearScreen = true
+            text.append(input)
+        case .minusPlus:
+            let negative = "\(turnToNegative(number: screenText.value))"
+            text.removeLast()
+            text.append(negative)
+            screenText.value = negative
+        case .percent:
+            screenText.value = "\(percent(number: screenText.value))"
         }
     }
-
-    private func doMath(text: String) -> String {
-        guard text != "0" else { return "Err" }
-        let expression = NSExpression(format: text)
+    
+    private func turnToNegative(number: String) -> Double {
+        let dNum = Double(number) ?? 0
+        return -dNum
+    }
+    
+    private func percent(number: String) -> Double {
+        let dNum = Double(number) ?? 0
+        return dNum / 100
+    }
+    
+    private func doMath(text: [String]) -> String {
+        guard text.count != 0 else { return "Err" }
+        let expression = NSExpression(format: text.joined())
         guard let mathValue = expression.expressionValue(with: nil, context: nil) as? Double else {
             return "Err"
         }
@@ -89,7 +103,7 @@ final class CalculatorViewModel {
     }
     
     private func fetchCurrencies() {
-        FixerRepository.shared.fetchLatest(symbols: "GBP,USD") { [unowned self] (responseDto, error) in
+        FixerRepository.shared.fetchLatest(symbols: "GBP,USD,JPY,AED,AFN") { [unowned self] (responseDto, error) in
             if let err = error {
                 CALog.shared.logRaw(err)
                 return
@@ -107,11 +121,18 @@ final class CalculatorViewModel {
     private func calculateCurrencies(result: String) {
         let gbpRate = latestDto?.rates.GBP ?? 0
         let usdRate = latestDto?.rates.USD ?? 0
+        let jpyRate = latestDto?.rates.JPY ?? 0
+        let aedRate = latestDto?.rates.AED ?? 0
+        let afnRate = latestDto?.rates.AFN ?? 0
         
         let doubleResult = Double(result) ?? 0
-        var tempDict = [String: Double]()
-        tempDict.updateValue(gbpRate * doubleResult, forKey: "GBP")
-        tempDict.updateValue(usdRate * doubleResult, forKey: "USD")
+        
+        var tempDict = [[String: Double]]()
+        tempDict.append(["GBP": gbpRate * doubleResult])
+        tempDict.append(["USD": usdRate * doubleResult])
+        tempDict.append(["JPY": jpyRate * doubleResult])
+        tempDict.append(["AED": aedRate * doubleResult])
+        tempDict.append(["AFN": afnRate * doubleResult])
         
         currencyData.value = tempDict
     }

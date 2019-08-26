@@ -9,7 +9,7 @@
 import Stevia
 
 enum OperatorType {
-    case number, equal, clear, function
+    case number, equal, clear, function, minusPlus, percent
 }
 
 final class CAButton: UIButton {

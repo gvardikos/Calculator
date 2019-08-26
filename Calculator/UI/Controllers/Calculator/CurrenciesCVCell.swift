@@ -11,17 +11,27 @@ import Stevia
 final class CurrenciesCVCell: BaseCVCell {
     lazy var currencyLabel: UILabel = { [unowned self] in
         let lb = UILabel()
-        lb.text = "asdf"
+        lb.textColor = .white
+        lb.textAlignment = .center
+        lb.font = UIFont(name: "AvenirNext-Medium", size: 20)
         return lb
     }()
     
     lazy var currencyValue: UILabel = { [unowned self] in
         let lb = UILabel()
-        lb.text = "asdf"
+        lb.textColor = .white
+        lb.textAlignment = .center
+        lb.font = UIFont(name: "AvenirNext-Medium", size: 20)
         return lb
     }()
     
+    public func setup(viewModel: CurrencyCellViewModel) {
+        currencyLabel.text = viewModel.label
+        currencyValue.text = viewModel.value
+    }
+    
     override func setupCell() {
+        sv([currencyLabel, currencyValue])
         setupCurrencyLabel()
         setupCurrencyValue()
     }
