@@ -19,10 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = CalculatorViewController()
         window?.makeKeyAndVisible()
         
-        NetworkLayer.shared.fetchLatest(symbols: "GBP, USD") { (dto, error) in
-            print(dto)
-        }
+//        NetworkLayer.shared.fetchLatest(symbols: "GBP, USD") { (dto, error) in
+//            print(dto)
+//        }
+//
         
+        FixerRepository.shared.fetchLatest(symbols: "GBP") { (responseDto, error) in
+            print(responseDto)
+            print(error)
+        }
         return true
     }
 

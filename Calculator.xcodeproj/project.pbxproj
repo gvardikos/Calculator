@@ -28,6 +28,8 @@
 		EC472348231338AE00635D64 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC472347231338AE00635D64 /* Parser.swift */; };
 		EC47234A2313390500635D64 /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723492313390500635D64 /* BaseParser.swift */; };
 		EC48F8812314438700181AD6 /* CalculatorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F8802314438700181AD6 /* CalculatorViewModelTests.swift */; };
+		EC48F8862314532600181AD6 /* FixerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F8852314532600181AD6 /* FixerRepository.swift */; };
+		EC48F8882314533000181AD6 /* IFixerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48F8872314533000181AD6 /* IFixerRepository.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
 		EC53D3982311904E00BF4B0E /* CALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D3972311904E00BF4B0E /* CALog.swift */; };
 		EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */; };
@@ -89,6 +91,8 @@
 		EC472347231338AE00635D64 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		EC4723492313390500635D64 /* BaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
 		EC48F8802314438700181AD6 /* CalculatorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModelTests.swift; sourceTree = "<group>"; };
+		EC48F8852314532600181AD6 /* FixerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerRepository.swift; sourceTree = "<group>"; };
+		EC48F8872314533000181AD6 /* IFixerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFixerRepository.swift; sourceTree = "<group>"; };
 		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC53D39323118BFA00BF4B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EC53D3972311904E00BF4B0E /* CALog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALog.swift; sourceTree = "<group>"; };
@@ -224,9 +228,35 @@
 		EC4723442313321700635D64 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				EC4723452313324100635D64 /* LatestDTO.swift */,
+				EC48F883231451DE00181AD6 /* Repositories */,
+				EC48F882231451D300181AD6 /* DTOs */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		EC48F882231451D300181AD6 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				EC4723452313324100635D64 /* LatestDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		EC48F883231451DE00181AD6 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				EC48F884231451E900181AD6 /* Contracts */,
+				EC48F8852314532600181AD6 /* FixerRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		EC48F884231451E900181AD6 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				EC48F8872314533000181AD6 /* IFixerRepository.swift */,
+			);
+			path = Contracts;
 			sourceTree = "<group>";
 		};
 		EC53D38B23118A7900BF4B0E /* SupporitngFiles */ = {
@@ -536,12 +566,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC48F8862314532600181AD6 /* FixerRepository.swift in Sources */,
 				EC47233F2312CCE100635D64 /* NetworkLayer.swift in Sources */,
 				EC47234A2313390500635D64 /* BaseParser.swift in Sources */,
 				EC47233C2312B7B800635D64 /* Observable.swift in Sources */,
 				EC47232E2311967200635D64 /* BaseView.swift in Sources */,
 				EC4723462313324100635D64 /* LatestDTO.swift in Sources */,
 				EC4723362312A30600635D64 /* Constants.swift in Sources */,
+				EC48F8882314533000181AD6 /* IFixerRepository.swift in Sources */,
 				EC472330231196A600635D64 /* CalculatorViewModel.swift in Sources */,
 				EC47233423128A0C00635D64 /* CAButton.swift in Sources */,
 				EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */,

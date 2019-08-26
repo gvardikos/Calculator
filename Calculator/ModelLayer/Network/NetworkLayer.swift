@@ -13,17 +13,18 @@ enum NetworkError: Error {
     case emptyResponse(message: String)
 }
 
-final class NetworkLayer {
-    public static let shared = NetworkLayer()
+typealias NetworkResult = (Data?, Error?) -> Void
+
+protocol INetworkLayer {
+    func fetchLatest(symbols: String, completion: @escaping NetworkResult)
+}
+
+final class NetworkLayer: INetworkLayer {
+    private let session: SessionManager
     
-    let session: SessionManager
-    
-    private init() {
+    init() {
         session = SessionManager()
     }
-    
-    typealias NetworkResult = (Data?, Error?) -> Void
-    typealias FetchLatestCallback = (LatestDTO?, Error?) -> Void
 
     func fcRequest(_ urlRequest: URLRequestConvertible, completion: @escaping NetworkResult) {
         session.request(urlRequest).responseJSON { (response) in
@@ -46,24 +47,9 @@ extension NetworkLayer {
     /// latest endpoint will return real-time exchange rate data updated every 60 minutes, every 10 minutes or every 60 seconds.
     ///
     /// - Parameter completion: (LatestDTO?, Error?) -> Void
-    func fetchLatest(symbols: String, completion: @escaping FetchLatestCallback) {
+    func fetchLatest(symbols: String, completion: @escaping NetworkResult) {
         fcRequest(Router.latest(symbols)) { (jsonData, error) in
-            if let err = error {
-                CALog.shared.logRaw(err)
-                return
-            }
-            
-            guard let safeJson = jsonData else {
-                CALog.shared.log(message: couldNotParseResponseMessage)
-                return
-            }
-            
-            if let response = Parser.shared.parseLatest(safeJson) {
-                CALog.shared.logRaw(response)
-                completion(response, nil)
-            } else {
-                completion(nil, NetworkError.server(message: couldNotParseResponseMessage))
-            }
+           completion(jsonData, error)
         }
     }
 }

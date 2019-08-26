@@ -8,11 +8,12 @@
 import Foundation
 
 final class CalculatorViewModel {
-    public var screenText = Observable<String>("")
+    public var screenText = Observable<String>("0")
     
     private var text: String
     private var shouldClearScreen: Bool
     
+    // Keeping the operations so I can provide history to the user
     private var operations = [String]() {
         didSet {
             operations.reverse()
@@ -41,6 +42,7 @@ final class CalculatorViewModel {
             text.removeAll()
             screenText.value = "0"
         case .number:
+            if screenText.value == "0" { screenText.value = "" }
             text.append(input)
             if shouldClearScreen {
                 screenText.value = input

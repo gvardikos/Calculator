@@ -8,10 +8,15 @@
 
 import Foundation
 
+protocol IParser {
+    func parseLatest(_ data: Data) -> LatestDTO?
+}
+
 final public class Parser: BaseParser {
-    static let shared = Parser()
-    private override init() {}
     
+}
+
+extension Parser: IParser {
     func parseLatest(_ data: Data) -> LatestDTO? {
         do {
             return try parse(LatestDTO.self, data)
