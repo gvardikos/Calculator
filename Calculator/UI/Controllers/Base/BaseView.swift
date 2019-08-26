@@ -24,6 +24,7 @@ class BaseView<VM>: UIView {
         super.init(frame: .zero)
         self.initialize()
         self.viewModel = vm
+        bind()
     }
     
     required init?(coder aDecoder: NSCoder) {

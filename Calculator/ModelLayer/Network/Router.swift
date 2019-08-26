@@ -9,17 +9,17 @@
 import Alamofire
 
 internal enum Router: URLRequestConvertible {
-    case convert(_ from: String, _ to: String, _ amount: String)
+    case latest(_ symbols: String)
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .convert:
+        case .latest:
             return .get
         }
     }
     
     var path: String {
-        return "/convert"
+        return "/latest"
     }
     
     var apiKey: String {
@@ -34,15 +34,12 @@ internal enum Router: URLRequestConvertible {
         request.httpMethod = self.httpMethod.rawValue
         
         switch self {
-        case .convert(let from, let to, let amount):
+        case .latest(let symbols):
             parameters.updateValue(apiKey, forKey: accessKeyKeyword)
-            parameters.updateValue(from, forKey: fromKeyword)
-            parameters.updateValue(to, forKey: toKeyword)
-            parameters.updateValue(amount, forKey: amountKeyword)
+            parameters.updateValue(symbols, forKey: symbolsKeyword)
             
             request = try URLEncoding.default.encode(request, with: parameters)
         }
-        
 
         CALog.shared.logRaw(request)
         return request

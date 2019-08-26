@@ -11,7 +11,6 @@
 		AED697F34C6C87A77D6F3B3B /* Pods_CalculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D3CCBB41FF9B7BCDDEE303B /* Pods_CalculatorUITests.framework */; };
 		C89FF37F6B430141DA5CE6D7 /* Pods_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21900F62B2974B4B9EB0F3C /* Pods_Calculator.framework */; };
 		EC15941A230F2CEB000A5592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC159419230F2CEB000A5592 /* AppDelegate.swift */; };
-		EC15941C230F2CEB000A5592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC15941B230F2CEB000A5592 /* ViewController.swift */; };
 		EC159421230F2CEC000A5592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC159420230F2CEC000A5592 /* Assets.xcassets */; };
 		EC15942F230F2CEC000A5592 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC15942E230F2CEC000A5592 /* CalculatorTests.swift */; };
 		EC15943A230F2CEC000A5592 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC159439230F2CEC000A5592 /* CalculatorUITests.swift */; };
@@ -24,7 +23,10 @@
 		EC4723382312A62C00635D64 /* CAHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */; };
 		EC47233C2312B7B800635D64 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47233B2312B7B800635D64 /* Observable.swift */; };
 		EC47233F2312CCE100635D64 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47233E2312CCE100635D64 /* NetworkLayer.swift */; };
-		EC4723432312D05F00635D64 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723422312D05F00635D64 /* Request.swift */; };
+		EC4723432312D05F00635D64 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723422312D05F00635D64 /* Router.swift */; };
+		EC4723462313324100635D64 /* LatestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723452313324100635D64 /* LatestDTO.swift */; };
+		EC472348231338AE00635D64 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC472347231338AE00635D64 /* Parser.swift */; };
+		EC47234A2313390500635D64 /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4723492313390500635D64 /* BaseParser.swift */; };
 		EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39323118BFA00BF4B0E /* Configuration.swift */; };
 		EC53D3982311904E00BF4B0E /* CALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D3972311904E00BF4B0E /* CALog.swift */; };
 		EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53D39A2311924100BF4B0E /* CalculatorViewController.swift */; };
@@ -62,7 +64,6 @@
 		E5B039036141853200E7EAA1 /* Pods-Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator.debug.xcconfig"; path = "Target Support Files/Pods-Calculator/Pods-Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		EC159416230F2CEB000A5592 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC159419230F2CEB000A5592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC15941B230F2CEB000A5592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EC159420230F2CEC000A5592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC159425230F2CEC000A5592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC15942A230F2CEC000A5592 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +83,10 @@
 		EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAHorizontalStackView.swift; sourceTree = "<group>"; };
 		EC47233B2312B7B800635D64 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		EC47233E2312CCE100635D64 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
-		EC4723422312D05F00635D64 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		EC4723422312D05F00635D64 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		EC4723452313324100635D64 /* LatestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestDTO.swift; sourceTree = "<group>"; };
+		EC472347231338AE00635D64 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		EC4723492313390500635D64 /* BaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
 		EC53D38A23118A0500BF4B0E /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		EC53D39323118BFA00BF4B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EC53D3972311904E00BF4B0E /* CALog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALog.swift; sourceTree = "<group>"; };
@@ -208,9 +212,18 @@
 			isa = PBXGroup;
 			children = (
 				EC47233E2312CCE100635D64 /* NetworkLayer.swift */,
-				EC4723422312D05F00635D64 /* Request.swift */,
+				EC4723422312D05F00635D64 /* Router.swift */,
+				EC472347231338AE00635D64 /* Parser.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EC4723442313321700635D64 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EC4723452313324100635D64 /* LatestDTO.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		EC53D38B23118A7900BF4B0E /* SupporitngFiles */ = {
@@ -248,7 +261,9 @@
 		EC53D39023118B0400BF4B0E /* ModelLayer */ = {
 			isa = PBXGroup;
 			children = (
+				EC4723442313321700635D64 /* Data */,
 				EC47233D2312CCD300635D64 /* Network */,
+				EC4723492313390500635D64 /* BaseParser.swift */,
 			);
 			path = ModelLayer;
 			sourceTree = "<group>";
@@ -258,7 +273,6 @@
 			children = (
 				EC4723282311955B00635D64 /* Base */,
 				EC53D3992311923400BF4B0E /* Calculator */,
-				EC15941B230F2CEB000A5592 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -520,19 +534,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC47233F2312CCE100635D64 /* NetworkLayer.swift in Sources */,
+				EC47234A2313390500635D64 /* BaseParser.swift in Sources */,
 				EC47233C2312B7B800635D64 /* Observable.swift in Sources */,
 				EC47232E2311967200635D64 /* BaseView.swift in Sources */,
+				EC4723462313324100635D64 /* LatestDTO.swift in Sources */,
 				EC4723362312A30600635D64 /* Constants.swift in Sources */,
 				EC472330231196A600635D64 /* CalculatorViewModel.swift in Sources */,
 				EC47233423128A0C00635D64 /* CAButton.swift in Sources */,
 				EC53D39B2311924100BF4B0E /* CalculatorViewController.swift in Sources */,
-				EC4723432312D05F00635D64 /* Request.swift in Sources */,
+				EC4723432312D05F00635D64 /* Router.swift in Sources */,
 				EC4723382312A62C00635D64 /* CAHorizontalStackView.swift in Sources */,
 				EC47232C2311962600635D64 /* CalculatorView.swift in Sources */,
 				EC53D3982311904E00BF4B0E /* CALog.swift in Sources */,
 				EC53D39423118BFA00BF4B0E /* Configuration.swift in Sources */,
-				EC15941C230F2CEB000A5592 /* ViewController.swift in Sources */,
 				EC15941A230F2CEB000A5592 /* AppDelegate.swift in Sources */,
+				EC472348231338AE00635D64 /* Parser.swift in Sources */,
 				EC47232A2311956D00635D64 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

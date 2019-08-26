@@ -19,9 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = CalculatorViewController()
         window?.makeKeyAndVisible()
         
-        NetworkLayer.shared.convert(from: "usd", to: "gbp", amount: "25") { (data, error) in
-            print(data)
-            print(error)
+        NetworkLayer.shared.fetchLatest(symbols: "GBP, USD") { (dto, error) in
+            print(dto)
         }
         
         return true

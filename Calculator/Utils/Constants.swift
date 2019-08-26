@@ -13,6 +13,7 @@ public let orangeButtonColor = UIColor(displayP3Red: 255/255, green: 165/255, bl
 
 // API parameters
 public let accessKeyKeyword = "access_key"
-public let fromKeyword = "from"
-public let toKeyword = "to"
-public let amountKeyword = "amount"
+public let symbolsKeyword = "symbols"
+
+// Error messages
+public let couldNotParseResponseMessage = "Couldn't parse response"

@@ -8,7 +8,13 @@
 
 import Stevia
 
+enum OperatorType {
+    case equal, clear, function
+}
+
 final class CAButton: UIButton {
+    var operation: String!
+    
     convenience init(title: String, backgroundColor: UIColor) {
         self.init(type: .system)
         initialize(title, backgroundColor)
@@ -27,5 +33,22 @@ final class CAButton: UIButton {
         setTitle(title, for: .normal)
         setTitleColor(.white, for: .normal)
         backgroundColor = backColor
+        
+        let text = NSAttributedString(
+            string: title,
+            attributes: [NSAttributedString.Key.font: UIFont(name: "AvenirNext-Medium", size: 40)!,
+                         NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        self.setAttributedTitle(text, for: .normal)
+        self.layer.cornerRadius = 3
+    }
+}
+
+extension CAButton {
+    func zoomIn(duration: TimeInterval = 0.1) {
+        self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        UIView.animate(withDuration: duration, delay: 0.0, options: [.curveEaseInOut], animations: {
+            self.transform = CGAffineTransform.identity
+        })
     }
 }

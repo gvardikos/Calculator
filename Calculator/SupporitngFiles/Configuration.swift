@@ -35,7 +35,7 @@ enum API {
     // Disabled the Lint: I think this is a straitfoward case. Maybe review it later
     static var baseURL: URL {
         let base: String = try! Configuration.value(for: "API_BASE_URL")
-        return URL(string: "https://" + base)!
+        return URL(string: "http://" + base)!
     }
     
     static var key: String {

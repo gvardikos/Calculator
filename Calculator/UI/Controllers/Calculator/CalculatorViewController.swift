@@ -15,5 +15,8 @@ extension CalculatorViewController {
 }
 
 final public class CalculatorViewController: BaseViewController {
-    public override func loadView() { view = CalculatorView() }
+    private let contentView = CalculatorView(vm: CalculatorViewModel(), frame: .zero)
+    public override func loadView() {
+        view = contentView
+    }
 }

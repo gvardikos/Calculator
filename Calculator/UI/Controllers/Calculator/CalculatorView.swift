@@ -151,9 +151,26 @@ final class CalculatorView: BaseView<CalculatorViewModel> {
         return button
     }()
     
+    fileprivate lazy var calcButtons: [CAButton] = [CAACButton, CAPlusMinusButton, CAPercentButton, CADivideButton, CASevenButton, CAEightButton, CANineButton, CAMultiButton, CAFourButton, CAFiveButton, CASixButton, CAMinusButton, CAOneButton, CATwoButton, CAThreeButton, CAPlusButton, CAZeroButton, CACommaButton, CAEqualsButton]
+    
     override func initialize() {
         addSubviewsWithSvh()
         initContraints()
+        
+        calcButtons.forEach { (button) in
+            button.addTarget(self, action: #selector(handleOperation), for: .touchUpInside)
+        }
+    }
+    
+    @objc
+    func handleOperation(sender: CAButton) {
+        viewModel?.handle(sender)
+    }
+    
+    override func bind() {
+        viewModel?.screenText.bind(listener: { [unowned self] (text) in
+            self.displayLabel.text? = text
+        })
     }
 }
 
