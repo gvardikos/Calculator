@@ -7,6 +7,10 @@
 //
 import Foundation
 
+// TODO: Add Calculator Class as businnes layer
+
+private let functions = ["*", "/", "+", "-"]
+
 final class CalculatorViewModel {
     public var screenText = Observable<String>("0")
     public var currencyData = Observable<[[String: Double]]>([[String: Double]]())
@@ -40,48 +44,79 @@ final class CalculatorViewModel {
         let input = sender.titleLabel?.text ?? "0"
         
         switch sender.operationType {
-        case .equal:
-            guard !isLocked else { break }
-            let result = doMath(text: text)
-            screenText.value = result
-            text.removeAll()
-            text.append(result)
-            if shouldCalculateCurrencies {
-                calculateCurrencies(result: result)
-            }
-        case .clear:
-            text.removeAll()
-            screenText.value = "0"
-            currencyData.value.removeAll()
-        case .number:
-            if screenText.value == "0" { screenText.value = "" }
-            if input == "." {
-                if text.contains(".") {
-                    return
-                }
-            }
-
-            if isLocked { isLocked = false }
-            text.append(input)
-            if shouldClearScreen {
-                screenText.value = input
-                shouldClearScreen = false
-            } else {
-                screenText.value += input
-            }
-        case .function:
-            isLocked = true
-            shouldClearScreen = true
-            text.append(input)
-        case .minusPlus:
-            guard text.count > 0 else { break }
-            let negative = "\(turnToNegative(number: screenText.value))"
-            text.removeLast()
-            text.append(negative)
-            screenText.value = negative
-        case .percent:
-            screenText.value = "\(percent(number: screenText.value))"
+        case .equal: equals()
+        case .clear: clear()
+        case .number: number(input: input)
+        case .function: function(input: input)
+        case .minusPlus: minusPlus()
+        case .percent: percent()
         }
+    }
+    
+    private func equals() {
+        guard !isLocked else { return }
+        let result = doMath(text: &text)
+        screenText.value = result
+        text.removeAll()
+        text.append(result)
+        if shouldCalculateCurrencies {
+            calculateCurrencies(result: result)
+        }
+    }
+    
+    private func clear() {
+        text.removeAll()
+        screenText.value = "0"
+        currencyData.value.removeAll()
+    }
+    
+    private func number(input: String) {
+        if screenText.value == "0" { screenText.value = "" }
+        if input == "." {
+            var shouldReturn = false
+            for num in text where num.contains(".") {
+                shouldReturn = true
+            }
+            if shouldReturn { return }
+        }
+        if isLocked { isLocked = false }
+        text.append(input)
+        if shouldClearScreen {
+            screenText.value = input
+            shouldClearScreen = false
+        } else {
+            screenText.value += input
+        }
+    }
+    
+    private func function(input: String) {
+        if checkLastifFunction() {
+            text.removeLast()
+        }
+        
+        isLocked = true
+        shouldClearScreen = true
+        text.append(input)
+    }
+    
+    private func minusPlus() {
+        guard text.count > 0 else { return }
+        let negative = "\(turnToNegative(number: screenText.value))"
+        text.removeLast()
+        text.append(negative)
+        screenText.value = negative
+    }
+    
+    private func percent() {
+        screenText.value = "\(percent(number: screenText.value))"
+        guard let lastNum = text.last else { return }
+        repeat {
+            guard text.count > 0 else { return }
+            text.removeLast()
+            print(functions.contains(lastNum))
+        } while !functions.contains(text.last ?? "/")
+        
+        text.append(screenText.value)
     }
     
     private func turnToNegative(number: String) -> Double {
@@ -94,8 +129,17 @@ final class CalculatorViewModel {
         return dNum / 100
     }
     
-    private func doMath(text: [String]) -> String {
+    private func doMath( text: inout [String]) -> String {
         guard text.count != 0 else { return "Err" }
+        if var lastNumber = text.last {
+            let containsDot = lastNumber.contains(".")
+            if !containsDot {
+                lastNumber.append(".0")
+                print(lastNumber)
+                text.removeLast()
+                text.append(lastNumber)
+            }
+        }
         let expression = NSExpression(format: text.joined())
         guard let mathValue = expression.expressionValue(with: nil, context: nil) as? Double else {
             return "Err"
@@ -108,6 +152,12 @@ final class CalculatorViewModel {
             return "Err"
         }
         return result
+    }
+    
+    private func checkLastifFunction() -> Bool {
+        guard let lastNum = text.last else { return false }
+        if functions.contains(lastNum) { return true }
+        return false
     }
     
     private func fetchCurrencies() {

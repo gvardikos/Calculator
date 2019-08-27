@@ -9,7 +9,7 @@
 import Foundation
 
 public class BaseParser {
-    public func parse<T>(_ type: T.Type, _ data: Data?) throws -> T where T : Codable {
+    public func parse<T>(_ type: T.Type, _ data: Data?) throws -> T where T: Codable {
         return try JSONDecoder().decode(type, from: data!)
     }
 }
