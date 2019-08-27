@@ -14,6 +14,6 @@ final public class CurrencyCellViewModel {
     
     init(rate: [String: Double]) {
         label = rate.keys.first ?? ""
-        value = NSString(format: "%.3f", rate.values.first ?? 0) as String 
+        value = NSString(format: "%.2f", rate.values.first ?? 0) as String 
     }
 }

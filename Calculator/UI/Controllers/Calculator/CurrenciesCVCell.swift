@@ -13,7 +13,7 @@ final class CurrenciesCVCell: BaseCVCell {
         let lb = UILabel()
         lb.textColor = .white
         lb.textAlignment = .center
-        lb.font = UIFont(name: "AvenirNext-Medium", size: 20)
+        lb.font = currnencyCellFont
         return lb
     }()
     
@@ -21,7 +21,7 @@ final class CurrenciesCVCell: BaseCVCell {
         let lb = UILabel()
         lb.textColor = .white
         lb.textAlignment = .center
-        lb.font = UIFont(name: "AvenirNext-Medium", size: 20)
+        lb.font = currnencyCellFont
         return lb
     }()
     

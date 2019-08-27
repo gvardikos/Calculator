@@ -55,6 +55,12 @@ final class CalculatorViewModel {
             currencyData.value.removeAll()
         case .number:
             if screenText.value == "0" { screenText.value = "" }
+            if input == "." {
+                if text.contains(".") {
+                    return
+                }
+            }
+
             if isLocked { isLocked = false }
             text.append(input)
             if shouldClearScreen {
@@ -68,6 +74,7 @@ final class CalculatorViewModel {
             shouldClearScreen = true
             text.append(input)
         case .minusPlus:
+            guard text.count > 0 else { break }
             let negative = "\(turnToNegative(number: screenText.value))"
             text.removeLast()
             text.append(negative)
@@ -95,7 +102,8 @@ final class CalculatorViewModel {
         }
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = 6
+
         guard let result = formatter.string(from: NSNumber(value: mathValue)) else {
             return "Err"
         }

@@ -17,3 +17,6 @@ public let symbolsKeyword = "symbols"
 
 // Error messages
 public let couldNotParseResponseMessage = "Couldn't parse response"
+
+// Fonts
+public let currnencyCellFont = UIFont(name: "AvenirNext-Medium", size: 20)
