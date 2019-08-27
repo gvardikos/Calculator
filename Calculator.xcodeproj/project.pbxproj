@@ -184,11 +184,10 @@
 		EC159418230F2CEB000A5592 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				EC6A9D7D2315A09B008014E6 /* Application */,
 				EC53D38D23118AEF00BF4B0E /* UI */,
 				EC53D39023118B0400BF4B0E /* ModelLayer */,
 				EC53D3962311903100BF4B0E /* Utils */,
-				EC53D38B23118A7900BF4B0E /* SupporitngFiles */,
-				EC159420230F2CEC000A5592 /* Assets.xcassets */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -269,10 +268,6 @@
 		EC53D38B23118A7900BF4B0E /* SupporitngFiles */ = {
 			isa = PBXGroup;
 			children = (
-				EC53D38C23118A8F00BF4B0E /* Flavours */,
-				EC159425230F2CEC000A5592 /* Info.plist */,
-				EC159419230F2CEB000A5592 /* AppDelegate.swift */,
-				EC53D39323118BFA00BF4B0E /* Configuration.swift */,
 			);
 			path = SupporitngFiles;
 			sourceTree = "<group>";
@@ -290,10 +285,8 @@
 		EC53D38D23118AEF00BF4B0E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				EC6A9D7C2315A078008014E6 /* Views */,
 				EC53D39123118B1900BF4B0E /* Controllers */,
-				EC47233323128A0C00635D64 /* CAButton.swift */,
-				EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */,
-				EC47233B2312B7B800635D64 /* Observable.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -320,6 +313,7 @@
 		EC53D3962311903100BF4B0E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EC47233B2312B7B800635D64 /* Observable.swift */,
 				EC53D3972311904E00BF4B0E /* CALog.swift */,
 				EC4723352312A30600635D64 /* Constants.swift */,
 			);
@@ -336,6 +330,28 @@
 				EC48F88D2314796000181AD6 /* CurrencyCellViewModel.swift */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		EC6A9D7C2315A078008014E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC47233323128A0C00635D64 /* CAButton.swift */,
+				EC4723372312A62C00635D64 /* CAHorizontalStackView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EC6A9D7D2315A09B008014E6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EC53D38C23118A8F00BF4B0E /* Flavours */,
+				EC53D38B23118A7900BF4B0E /* SupporitngFiles */,
+				EC159419230F2CEB000A5592 /* AppDelegate.swift */,
+				EC53D39323118BFA00BF4B0E /* Configuration.swift */,
+				EC159420230F2CEC000A5592 /* Assets.xcassets */,
+				EC159425230F2CEC000A5592 /* Info.plist */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
